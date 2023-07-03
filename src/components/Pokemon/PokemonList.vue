@@ -19,7 +19,7 @@ export default {
 
 <template>
   <div id="pokemons">
-    <div class="row row-cols-5">
+    <div class="row row-cols-5 g-3">
       <div class="col" v-for="pokemon in pokemons" :key="pokemon._id">
         <PokemonCard :name="pokemon.name" :type="pokemon.type1" :image="pokemon.imageUrl" :number="pokemon.number" />
       </div>
@@ -28,4 +28,10 @@ export default {
   </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.row .col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>
