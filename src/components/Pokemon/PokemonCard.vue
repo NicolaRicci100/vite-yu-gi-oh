@@ -10,7 +10,7 @@ export default {
 </script>
 
 <template>
-  <div class="poke-card">
+  <div class="poke-card bg-dark-subtle">
     <figure>
       <img class="img-fluid rounded-circle" :src="image" :alt="name">
     </figure>
@@ -21,30 +21,28 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../../assets/scss/style.scss' as *;
+
 .poke-card {
-  height: 300px;
-  width: 250px;
-  display: flex;
+  @include center-flex;
+  height: 250px;
+  width: 200px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: gray;
   border-radius: 20px;
   padding: 10px 0 10px;
 
+
   figure {
-    width: 200px;
-    height: 200px;
+    @include center-flex;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     img {
       object-fit: contain;
-      height: 200px;
-      width: 200px;
+      height: 150px;
+      width: 150px;
     }
   }
 }
