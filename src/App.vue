@@ -6,7 +6,7 @@ export default {
 
 
 <template>
-  <h1>Pokévuex</h1>
+  <h1 class="text-primary">Pokévuex</h1>
 </template>
 
 
