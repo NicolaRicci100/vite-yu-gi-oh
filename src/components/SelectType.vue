@@ -31,7 +31,7 @@ export default {
   <section class="container d-flex justify-content-center align-items-center mb-4">
     <div id="select-list">
       <select class="form-select">
-        <option selected>Nessun Tipo</option>
+        <option selected>All Types</option>
         <option v-for="pokemontype in pokemonTypes" :key="i">{{ pokemontype }}</option>
       </select>
     </div>
