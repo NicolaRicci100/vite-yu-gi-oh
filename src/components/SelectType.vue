@@ -1,26 +1,29 @@
 <script>
-const pokemonTypes = [
-  "Bug",
-  "Dark",
-  "Dragon",
-  "Electric",
-  "Fairy",
-  "Fighting",
-  "Fire",
-  "Flying",
-  "Ghost",
-  "Grass",
-  "Ground",
-  "Ice",
-  "Normal",
-  "Poison",
-  "Psychic",
-  "Rock",
-  "Steel",
-  "Water"
-]
 export default {
-
+  data() {
+    return {
+      pokemonTypes: [
+        "Bug",
+        "Dark",
+        "Dragon",
+        "Electric",
+        "Fairy",
+        "Fighting",
+        "Fire",
+        "Flying",
+        "Ghost",
+        "Grass",
+        "Ground",
+        "Ice",
+        "Normal",
+        "Poison",
+        "Psychic",
+        "Rock",
+        "Steel",
+        "Water"
+      ]
+    }
+  }
 }
 </script>
 
@@ -29,9 +32,7 @@ export default {
     <div id="select-list">
       <select class="form-select">
         <option selected>Nessun Tipo</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option v-for="pokemontype in pokemonTypes" :key="i">{{ pokemontype }}</option>
       </select>
     </div>
   </section>
