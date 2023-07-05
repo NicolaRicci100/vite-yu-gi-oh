@@ -6,21 +6,30 @@ import { store } from './data/store.js';
 import AppMain from './components/AppMain.vue';
 import SelectType from './components/SelectType.vue';
 export default {
+  data() {
+    return {
+      store
+    }
+  },
   components: { AppMain, SelectType },
-
   methods: {
     fetchPokemon(endpoint = apiUri) {
       axios.get(endpoint).then(res => {
-        store.pokemons = res.data.docs;
+        const pokemons = res.data.docs;
+        store.pokemons = pokemons.map(pokemon => {
+          const { name, number, type1, imageUrl } = pokemon;
+          return { name, number, type1, imageUrl };
+        })
       });
     },
     fetchTypes() {
       axios.get(apiUri + '/types1').then(res => {
         store.types = res.data;
+
       });
     },
     filterPokemon(type) {
-      const uri = `${apiUri}?eq[types1]=${type}`;
+      const uri = `${apiUri}?eq[type1]=${type}`;
       this.fetchPokemon(uri);
     },
   },
