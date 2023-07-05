@@ -1,27 +1,13 @@
 <script>
 export default {
+  props: {
+    options: Array,
+    standardLabel: String
+  },
+  emits: ['option-change'],
   data() {
     return {
-      pokemonTypes: [
-        "Bug",
-        "Dark",
-        "Dragon",
-        "Electric",
-        "Fairy",
-        "Fighting",
-        "Fire",
-        "Flying",
-        "Ghost",
-        "Grass",
-        "Ground",
-        "Ice",
-        "Normal",
-        "Poison",
-        "Psychic",
-        "Rock",
-        "Steel",
-        "Water"
-      ]
+      selectedOption: '',
     }
   }
 }
@@ -30,9 +16,9 @@ export default {
 <template>
   <section class="container d-flex justify-content-center align-items-center mb-4">
     <div id="select-list">
-      <select class="form-select">
-        <option selected>All Types</option>
-        <option v-for="pokemontype in pokemonTypes" :key="i">{{ pokemontype }}</option>
+      <select class="form-select" v-model="selectedOption" @change="$emit('option-change', selectedOption)">
+        <option value="">{{ standardLabel || '...' }}</option>
+        <option v-for="option in options" :key="option">{{ option }}</option>
       </select>
     </div>
   </section>
